@@ -13,6 +13,7 @@ fetch('http://localhost:3000/movies')
     <h3>${movie.title}</h3>
     <p>${movie.genre}</p>
     <p>${movie.release_year}</p>
+    <a href="movie-detail.html?id=${movie.id}">Detayları Gör</a>
 `;
 
             movieList.appendChild(movieCard);
