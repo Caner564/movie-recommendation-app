@@ -47,3 +47,81 @@ main {
 .movie-card a:hover {
     opacity: 0.8;
 }
+
+.movie-card {
+    padding: 20px;
+    margin: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    background-color: white;
+}
+
+.movie-card h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.movie-card p {
+    margin: 6px 0;
+}
+
+.movie-card a {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 8px 14px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+#movie-detail {
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    background-color: white;
+}
+
+#movie-detail h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+#movie-detail p {
+    margin: 12px 0;
+    line-height: 1.6;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #f5f5f5;
+}
+
+header {
+    padding: 20px;
+    text-align: center;
+    background-color: #333;
+    color: white;
+}
+
+main {
+    padding: 20px;
+}
+
+.movie-card,
+#movie-detail {
+    background-color: white;
+}
+
+#movies {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.movie-card {
+    margin: 0;
+}
