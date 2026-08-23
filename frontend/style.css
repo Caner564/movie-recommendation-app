@@ -158,3 +158,25 @@ main {
     text-align: center;
     margin: 20px;
 }
+
+.category-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.category-container label {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.category-container select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: white;
+    cursor: pointer;
+}

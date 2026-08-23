@@ -25,27 +25,25 @@ fetch('http://localhost:3000/movies')
 
 const searchInput = document.getElementById('searchInput');
 const searchButton = document.getElementById('searchButton');
+const categorySelect = document.getElementById('categorySelect');
 const noResults = document.getElementById('no-results');
 
-searchButton.addEventListener('click', () => {
-    const searchText = searchInput.value.toLowerCase();
-const movieCards = document.querySelectorAll('.movie-card');
-
-if (searchText.trim() === '') {
-    movieCards.forEach(card => {
-        card.style.display = 'block';
-    });
-
-    noResults.style.display = 'none';
-    return;
-}
+function applyFilters() {
+    const searchText = searchInput.value.toLowerCase().trim();
+    const selectedCategory = categorySelect.value;
+    const movieCards = document.querySelectorAll('.movie-card');
 
     let found = false;
 
     movieCards.forEach(card => {
         const title = card.querySelector('h3').textContent.toLowerCase();
+        const genre = card.querySelector('p').textContent;
 
-        if (title.includes(searchText)) {
+        const matchesSearch = title.includes(searchText);
+        const matchesCategory =
+            selectedCategory === 'all' || genre === selectedCategory;
+
+        if (matchesSearch && matchesCategory) {
             card.style.display = 'block';
             found = true;
         } else {
@@ -53,9 +51,8 @@ if (searchText.trim() === '') {
         }
     });
 
-    if (found) {
-        noResults.style.display = 'none';
-    } else {
-        noResults.style.display = 'block';
-    }
-});
+    noResults.style.display = found ? 'none' : 'block';
+}
+
+searchButton.addEventListener('click', applyFilters);
+categorySelect.addEventListener('change', applyFilters);
