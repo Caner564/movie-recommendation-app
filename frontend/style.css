@@ -180,3 +180,17 @@ main {
     background-color: white;
     cursor: pointer;
 }
+
+.user-links {
+    margin-top: 10px;
+}
+
+.user-links a {
+    color: white;
+    text-decoration: none;
+    margin: 0 8px;
+}
+
+.user-links a:hover {
+    text-decoration: underline;
+}
