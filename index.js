@@ -1,5 +1,6 @@
 const express = require("express");
 const usersRoutes = require('./backend/routes/users');
+const favoritesRoutes = require('./backend/routes/favorites');
 const db = require("./backend/db/database");
 const moviesRouter = require("./backend/routes/movies");
 
@@ -10,6 +11,7 @@ app.use(express.json());
 app.use("/movies", moviesRouter);
 app.use(express.static('frontend'));
 app.use('/', usersRoutes);
+app.use('/', favoritesRoutes);
 app.get("/", (req, res) => {
     res.send("API çalışıyor");
 });
