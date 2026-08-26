@@ -56,3 +56,38 @@ function applyFilters() {
 
 searchButton.addEventListener('click', applyFilters);
 categorySelect.addEventListener('change', applyFilters);
+
+const recommendationGenre = document.getElementById('recommendationGenre');
+const recommendButton = document.getElementById('recommendButton');
+const recommendationList = document.getElementById('recommendation-list');
+
+recommendButton.addEventListener('click', () => {
+    const genre = recommendationGenre.value;
+
+    fetch(`http://localhost:3000/recommend/${encodeURIComponent(genre)}`)
+        .then(response => response.json())
+        .then(movies => {
+            recommendationList.innerHTML = '';
+
+            if (movies.length === 0) {
+                recommendationList.innerHTML = '<p>Bu kategori için öneri bulunamadı.</p>';
+                return;
+            }
+
+            movies.forEach(movie => {
+                const movieCard = document.createElement('div');
+                movieCard.classList.add('movie-card');
+
+                movieCard.innerHTML = `
+    <h3>${movie.title}</h3>
+    <p>${movie.genre}</p>
+    <a href="movie-detail.html?id=${movie.id}">Detayları Gör</a>
+`;
+
+                recommendationList.appendChild(movieCard);
+            });
+        })
+        .catch(error => {
+            console.error('Film önerileri alınamadı:', error);
+        });
+});
