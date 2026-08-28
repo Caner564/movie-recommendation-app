@@ -25,7 +25,7 @@ fetch('http://localhost:3000/movies')
 
 const searchInput = document.getElementById('searchInput');
 const searchButton = document.getElementById('searchButton');
-const categorySelect = document.getElementById('categorySelect');
+const categorySelect = document.getElementById('categoryFilter');
 const noResults = document.getElementById('no-results');
 
 function applyFilters() {
@@ -91,3 +91,22 @@ recommendButton.addEventListener('click', () => {
             console.error('Film önerileri alınamadı:', error);
         });
 });
+const darkModeButton = document.getElementById('darkModeButton');
+
+darkModeButton.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+
+    if (document.body.classList.contains('dark-mode')) {
+        darkModeButton.textContent = '☀️ Light Mode';
+        localStorage.setItem('theme', 'dark');
+    } else {
+        darkModeButton.textContent = '🌙 Dark Mode';
+        localStorage.setItem('theme', 'light');
+    }
+});
+const savedTheme = localStorage.getItem('theme');
+
+if (savedTheme === 'dark') {
+    document.body.classList.add('dark-mode');
+    darkModeButton.textContent = '☀️ Light Mode';
+}

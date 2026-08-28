@@ -209,3 +209,93 @@ main {
 #favoriteButton:hover {
     opacity: 0.8;
 }
+body.dark-mode {
+    background-color: #222;
+    color: white;
+}
+
+body.dark-mode header {
+    background-color: #111;
+}
+
+body.dark-mode .movie-card {
+    background-color: #333;
+    color: white;
+}
+
+body.dark-mode a {
+    color: #66b3ff;
+}
+
+body.dark-mode button,
+body.dark-mode select {
+    background-color: #333;
+    color: white;
+}
+header {
+    padding: 20px;
+    text-align: center;
+}
+
+main {
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+.movie-card {
+    margin-bottom: 15px;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+button,
+select {
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+}
+
+.recommendation-container {
+    margin-bottom: 30px;
+}
+
+.rating-container {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+body.dark-mode,
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode p,
+body.dark-mode label {
+    color: white;
+}
+body.dark-mode,
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode p,
+body.dark-mode label {
+    color: white;
+}
+
+body.dark-mode #movie-detail {
+    background-color: #333;
+    color: white;
+}
+
+body.dark-mode #movie-detail p,
+body.dark-mode #movie-detail h2 {
+    color: white;
+}
+
+body.dark-mode .movie-card h3,
+body.dark-mode .movie-card p {
+    color: white;
+}

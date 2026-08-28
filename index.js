@@ -4,6 +4,7 @@ const favoritesRoutes = require('./backend/routes/favorites');
 const db = require("./backend/db/database");
 const moviesRouter = require("./backend/routes/movies");
 const { spawn } = require('child_process');
+const ratingsRoutes = require('./backend/routes/ratings');
 
 const app = express();
 
@@ -13,6 +14,7 @@ app.use("/movies", moviesRouter);
 app.use(express.static('frontend'));
 app.use('/', usersRoutes);
 app.use('/', favoritesRoutes);
+app.use('/', ratingsRoutes);
 app.get('/recommend/:genre', (req, res) => {
     const genre = req.params.genre;
 

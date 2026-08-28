@@ -41,4 +41,26 @@ router.get('/favorites/:user_id', (req, res) => {
         res.json(results);
     });
 });
+router.delete('/favorites/:user_id/:movie_id', (req, res) => {
+    const userId = req.params.user_id;
+    const movieId = req.params.movie_id;
+
+    const sql = `
+        DELETE FROM favorites
+        WHERE user_id = ? AND movie_id = ?
+    `;
+
+    db.query(sql, [userId, movieId], (err, result) => {
+        if (err) {
+            console.error(err);
+            return res.status(500).json({
+                message: 'Favori silinirken hata oluştu.'
+            });
+        }
+
+        res.json({
+            message: 'Film favorilerden çıkarıldı!'
+        });
+    });
+});
 module.exports = router;

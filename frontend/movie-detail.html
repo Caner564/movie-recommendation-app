@@ -10,6 +10,7 @@
 
     <header>
         <h1>Film Detayı</h1>
+        <button id="darkModeButton">🌙 Dark Mode</button>
     </header>
 
     <main>
@@ -17,6 +18,22 @@
             <h2>Film yükleniyor...</h2>
         </div>
         <button id="favoriteButton">Favorilere Ekle</button>
+        <div class="rating-container">
+    <label for="ratingSelect">Filme puan ver:</label>
+
+    <select id="ratingSelect">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+    </select>
+
+    <button id="ratingButton">Puan Ver</button>
+
+    <p id="ratingMessage"></p>
+</div>
+<p id="averageRating">Ortalama puan yükleniyor...</p>
     </main>
 
     <script src="movie-detail.js"></script>

@@ -9,7 +9,8 @@
 <body>
 
     <header>
-    <h1>Movie Recommendation</h1>
+    <h1>Film Öneri Sistemi</h1>
+    <button id="darkModeButton">🌙 Dark Mode</button>
 
     <div class="user-links">
     <a href="login.html">Giriş Yap</a>
@@ -24,10 +25,14 @@
     <h2>Film Önerileri</h2>
 
     <select id="recommendationGenre">
-        <option value="Aksiyon">Aksiyon</option>
-        <option value="Bilim Kurgu">Bilim Kurgu</option>
-        <option value="Komedi">Komedi</option>
-    </select>
+    <option value="Aksiyon">Aksiyon</option>
+    <option value="Bilim Kurgu">Bilim Kurgu</option>
+    <option value="Komedi">Komedi</option>
+    <option value="Romantik">Romantik</option>
+    <option value="Korku">Korku</option>
+    <option value="Drama">Drama</option>
+    <option value="Animasyon">Animasyon</option>
+</select>
 
     <button id="recommendButton">Öneri Getir</button>
 
@@ -38,12 +43,17 @@
     <button id="searchButton">Ara</button>
     </div>
     <div class="category-container">
-    <label for="categorySelect">Kategori:</label>
-    <select id="categorySelect">
-        <option value="all">Tüm Filmler</option>
+    <label for="categoryFilter">Kategori:</label>
+
+    <select id="categoryFilter">
+        <option value="all">Tüm Kategoriler</option>
         <option value="Aksiyon">Aksiyon</option>
         <option value="Bilim Kurgu">Bilim Kurgu</option>
         <option value="Komedi">Komedi</option>
+        <option value="Romantik">Romantik</option>
+        <option value="Korku">Korku</option>
+        <option value="Drama">Drama</option>
+        <option value="Animasyon">Animasyon</option>
     </select>
 </div>
 

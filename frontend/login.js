@@ -19,8 +19,14 @@ loginForm.addEventListener('submit', (event) => {
     })
     .then(response => response.json())
     .then(data => {
-        loginMessage.textContent = data.message;
-    })
+    loginMessage.textContent = data.message;
+
+    if (data.message.includes('başarılı')) {
+        setTimeout(() => {
+            window.location.href = 'index.html';
+        }, 500);
+    }
+})
     .catch(error => {
         console.error('Giriş sırasında hata oluştu:', error);
         loginMessage.textContent = 'Giriş sırasında hata oluştu.';
