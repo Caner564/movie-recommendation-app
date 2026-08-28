@@ -12,6 +12,8 @@ Movie Recommendation System, kullanıcıların filmleri görüntüleyebildiği, 
 * Node.js
 * Express.js
 * MySQL
+* Python
+* Draw.io
 
 ## Özellikler
 
