@@ -27,11 +27,11 @@ CREATE TABLE `favorites` (
   `user_id` int NOT NULL,
   `movie_id` int NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `user_id` (`user_id`),
+  UNIQUE KEY `user_id` (`user_id`,`movie_id`),
   KEY `movie_id` (`movie_id`),
   CONSTRAINT `favorites_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
   CONSTRAINT `favorites_ibfk_2` FOREIGN KEY (`movie_id`) REFERENCES `movies` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -40,6 +40,7 @@ CREATE TABLE `favorites` (
 
 LOCK TABLES `favorites` WRITE;
 /*!40000 ALTER TABLE `favorites` DISABLE KEYS */;
+INSERT INTO `favorites` VALUES (3,1,2),(2,1,3);
 /*!40000 ALTER TABLE `favorites` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -57,7 +58,7 @@ CREATE TABLE `movies` (
   `description` text,
   `release_year` int DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -66,7 +67,7 @@ CREATE TABLE `movies` (
 
 LOCK TABLES `movies` WRITE;
 /*!40000 ALTER TABLE `movies` DISABLE KEYS */;
-INSERT INTO `movies` VALUES (1,'Inception','Action','A thief who enters the dreams of others.',2010),(2,'Interstellar','Science Fiction','A journey through space and time.',2014),(3,'The Dark Knight','Action','A hero fights crime in Gotham City.',2008),(4,'The Hangover','Comedy','A group of friends experience a chaotic trip.',2009);
+INSERT INTO `movies` VALUES (1,'Inception','Aksiyon','Başkalarının rüyalarına giren bir hırsız.',2010),(2,'Interstellar','Bilim Kurgu','Uzay ve zamanda gerçekleşen bir yolculuk.',2014),(3,'The Dark Knight','Aksiyon','Bir kahraman Gotham City\'de suçla mücadele eder.',2008),(4,'The Hangover','Komedi','Bir grup arkadaş kaotik bir yolculuk yaşar.',2009),(5,'The Matrix','Bilim Kurgu','Bir bilgisayar programcısı gerçekliğin sandığından farklı olduğunu keşfeder.',1999),(6,'Titanic','Romantik','Genç bir kadın ve bir adam büyük bir gemide birbirlerine aşık olurlar.',1997),(7,'The Conjuring','Korku','Bir aile, evlerinde yaşanan doğaüstü olaylarla mücadele eder.',2013),(8,'The Pursuit of Happyness','Drama','Bir baba, oğluna daha iyi bir hayat sunabilmek için zorlu bir mücadele verir.',2006),(9,'Toy Story','Animasyon','Oyuncaklar, insanlar yokken kendi dünyalarında yaşamaya başlar.',1995),(10,'Gladiator','Aksiyon','Bir Roma generali ailesinin intikamını almak için mücadele eder.',2000);
 /*!40000 ALTER TABLE `movies` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -83,11 +84,11 @@ CREATE TABLE `ratings` (
   `movie_id` int NOT NULL,
   `rating` int NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `user_id` (`user_id`),
+  UNIQUE KEY `user_id` (`user_id`,`movie_id`),
   KEY `movie_id` (`movie_id`),
   CONSTRAINT `ratings_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
   CONSTRAINT `ratings_ibfk_2` FOREIGN KEY (`movie_id`) REFERENCES `movies` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -96,6 +97,7 @@ CREATE TABLE `ratings` (
 
 LOCK TABLES `ratings` WRITE;
 /*!40000 ALTER TABLE `ratings` DISABLE KEYS */;
+INSERT INTO `ratings` VALUES (1,1,1,4),(4,1,2,5),(13,1,5,2),(14,1,6,2);
 /*!40000 ALTER TABLE `ratings` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -111,8 +113,10 @@ CREATE TABLE `users` (
   `username` varchar(50) NOT NULL,
   `email` varchar(100) NOT NULL,
   `password` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `username` (`username`),
+  UNIQUE KEY `email` (`email`)
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -121,7 +125,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'caner','caner@example.com','123456'),(2,'testuser','test@example.com','123456');
+INSERT INTO `users` VALUES (1,'caner','caner@example.com','123456'),(2,'testuser','test@example.com','123456'),(5,'123','ecaner670@gmail.com','123'),(11,'ecaner670@gmail.com','ecaner6730@gmail.com','123'),(16,'173','ecaner6770@gmail.com','12345');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -134,4 +138,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-08-18 11:24:51
+-- Dump completed on 2026-08-28 17:44:29
