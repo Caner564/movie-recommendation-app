@@ -73,24 +73,13 @@ http://localhost:3000
 movie-recommendation-app/
 │
 ├── backend/
-│   ├── db/
-│   │   └── database.js
-│   └── routes/
-│       ├── movies.js
-│       ├── ratings.js
-│       └── favorites.js
-│
-├── index.html
-├── movie-detail.html
-├── login.html
-├── register.html
-├── favorites.html
-├── style.css
-├── script.js
-├── login.js
-├── register.js
-├── favorites.js
+├── frontend/
+├── postman/
+├── python/
+├── .gitignore
+├── database.sql
 ├── index.js
+├── package-lock.json
 ├── package.json
 └── README.md
 ```
